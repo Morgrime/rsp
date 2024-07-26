@@ -4,6 +4,7 @@ from aiogram.types import Message
 from keyboards.keyboard import game_kb, yes_no_kb
 from lexicon.lexicon_ru import LEXICON_RU
 from services.services import get_bot_choice, get_winner
+from aiogram import Bot
 
 router = Router()
 
@@ -18,6 +19,12 @@ async def process_start_command(message: Message):
 @router.message(Command(commands='help'))
 async def process_help_command(message: Message):
     await message.answer(text=LEXICON_RU['/help'], reply_markup=yes_no_kb)
+
+#удаление менюшки
+@router.message(Command(commands='delmenu'))
+async def del_main_menu(message: Message, bot: Bot):
+    await bot.delete_my_commands()
+    await message.answer(text='Кнопка "Menu" удалена')
 
 
 # Этот хэндлер срабатывает на согласие пользователя играть в игру

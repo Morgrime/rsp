@@ -25,5 +25,6 @@ LEXICON_RU: dict[str, str] = {
 
 # просто добавлять по шаблону какие-либо комманды
 LEXICON_COMMANDS_RU: dict[str, str] = {
-    '/help': 'Описание бота'
+    '/help': 'Описание бота',
+    '/delmenu': 'Удалить кнопку меню'
 }
